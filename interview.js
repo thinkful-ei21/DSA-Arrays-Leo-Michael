@@ -85,31 +85,24 @@ console.log(arrProducts([1, 3, 9, 4]));
 
 
 function twoDArray (arr){
-  // rowsToZero=[0];
-  // columsToZero=[0];
-  // console.log(arr[i][j]);
+  let columnsToZero=[];
+  let rowsToZero=[];
 
-  // if arr[i][j]=0) rowsToZero= [i] colums= [j]
-
-  //rows= [0,1,3] colums= [0,1,4]
-
-  //  arr[0][0]
-  //    arr[0][1]
-  //  arr[0][4]
-
-  // if row.contains(arr[i])
-  //arr[i]=
-
-
-  //  if arr[i].includes(0){}
+  for(let i=0; i<arr.length;i++){
+    if(arr[i].includes(0)){rowsToZero.push(i);}
+    for(let j=0; j<arr[i].length; j++){
+      if (arr[i][j]===0){columnsToZero.push(j);}
+    }
+  }
 
   for(let i=0; i<arr.length;i++){
     for(let j=0; j<arr[i].length; j++){
-      if (arr[i].includes(0)){
+      if (rowsToZero.includes(i) || columnsToZero.includes(j)){
         arr[i][j]=0;
       }
     }
   }
+  
   return arr;
 }
 
@@ -122,6 +115,8 @@ console.log(twoDArray(
     [1,1,1,1,1]
   ]
 ));
+
+// O(2^n)
 
 
 
